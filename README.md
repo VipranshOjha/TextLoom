@@ -1,86 +1,104 @@
-TextLoom
+# TextLoom ✨
 
-Weaving AI text into natural human flow, powered by the Gemini API
+*Weaving AI text into natural human flow, powered by the Gemini API*
 
-💬 The Problem
+## 💬 The Problem
 
-I rely heavily on AI language models for brainstorming, drafting, and summarizing. While they’re great at speed and structure, the outputs often feel robotic — lacking the rhythm, personality, and quirks of natural human writing.
+I rely heavily on AI language models for brainstorming, drafting, and summarizing. While they’re great at speed and structure, the outputs often feel **robotic** — lacking the rhythm, personality, and quirks of natural human writing.
 
 When I searched for online “AI humanizers,” I ran into two big issues:
 
-Expensive Subscriptions → Most good tools are locked behind monthly paywalls.
-
-Severe Character Limits → Free versions barely allowed me to humanize a single paragraph.
+* **Expensive Subscriptions** → Most good tools are locked behind monthly paywalls.
+* **Severe Character Limits** → Free versions barely allowed me to humanize a single paragraph.
 
 That made them impractical for real-world use. I needed something:
 ✅ Free to run
 ✅ Capable of handling longer text
 ✅ Flexible enough to let me choose the tone
 
-✨ The Solution
+---
 
-That’s why I built TextLoom — a local tool that transforms sterile AI text into natural, engaging, human-like writing.
+## ✨ The Solution
 
-Uses the Google Gemini API through a Flask backend (keeping my API key safe).
+That’s why I built **TextLoom** — a local tool that transforms sterile AI text into **natural, engaging, human-like writing**.
 
-Runs as a single-page web app, lightweight and easy to use.
+* Uses the **Google Gemini API** through a Flask backend (keeping my API key safe).
+* Runs as a **single-page web app**, lightweight and easy to use.
+* No subscriptions. No limits. Just **reliable text humanization** whenever I need it.
 
-No subscriptions. No limits. Just reliable text humanization whenever I need it.
+---
 
-🚀 Features
+## 🚀 Features
 
-🎯 Natural Language Conversion → Smooth, conversational phrasing that feels alive.
+* 🎯 **Natural Language Conversion** → Smooth, conversational phrasing that feels alive.
+* 🎨 **Multiple Tone Selection** → Conversational, Professional, Friendly, Witty, Casual, Creative, Academic.
+* 🔒 **Secure Backend** → Flask server ensures your Gemini API key is never exposed.
+* 🖥 **Clean & Modern UI** → Sleek design for a seamless experience.
+* 📋 **One-Click Copy** → Copy results instantly.
+* 🔢 **Character Counter** → Keep track of input length as you write.
+* ⚡ **Before/After Comparison** → Instantly see how your text improves.
 
-🎨 Multiple Tone Selection → Conversational, Professional, Friendly, Witty, Casual, Creative.
+---
 
-🔒 Secure Backend → Flask server ensures your Gemini API key is never exposed.
+## 🛠️ Tech Stack
 
-🖥 Clean & Modern UI → Sleek design for a seamless experience.
+* **Frontend** → HTML, CSS, Vanilla JavaScript
+* **Backend** → Python (Flask)
+* **AI Model** → Google Gemini API
 
-📋 One-Click Copy → Copy results instantly.
+---
 
-🔢 Character Counter → Keep track of input length as you write.
+## ✍️ Quick Demo
 
-⚡ Before/After Comparison → Instantly see how your text improves.
+**Input:**
+`"AI aims to create machines that can exhibit intelligent behaviors like learning, reasoning, and perception."`
 
-🛠️ Tech Stack
+**Output (Conversational tone):**
+*"AI’s goal is to build machines that don’t just follow instructions but actually learn, think, and make sense of the world — kind of like us figuring things out step by step."*
 
-Frontend → HTML, CSS, Vanilla JavaScript
+---
 
-Backend → Python (Flask)
+## 🖼 Example Run
 
-AI Model → Google Gemini API
+1️⃣ **Default Page** <img width="1103" height="1082" alt="Default Page" src="https://github.com/user-attachments/assets/2ee6ff64-94e7-48ad-8ecf-e274bc5261e6" />
 
-🖼 Screenshot
+2️⃣ **After Humanization**
+*Input: `"AI aims to create machines that can exhibit intelligent behaviors like learning, reasoning, and perception."`*
 
-<img width="1118" height="1394" alt="image" src="https://github.com/user-attachments/assets/b9e0cecd-9199-49ae-b647-e6ed0d71cc98" />
+<img width="1108" height="1408" alt="After Humanization" src="https://github.com/user-attachments/assets/049b0fdf-9a43-4a18-ab18-ac19354fb3e7" />  
 
-⚙️ Setup & Usage
+---
 
-Clone the Repository
+## ⚙️ Setup & Usage
 
+```bash
+# Clone the Repository
 git clone https://github.com/VipranshOjha/Daily-Problem-Solvers.git
 cd Daily-Problem-Solvers/TextLoom
+```
 
+# Create the Environment File (.env)
+```
+echo "GEMINI_API_KEY=YOUR_SECRET_API_KEY_HERE" > .env
+```
 
-Create the Environment File
-Create a .env file in this folder and add your Gemini API key:
-
-GEMINI_API_KEY=YOUR_SECRET_API_KEY_HERE
-
-
-Install Dependencies
-
+# Install Dependencies
+```
 pip install -r requirements.txt
-
-
-Run the Backend Server
-
+```
+# Run the Backend Server
+```
 python app.py
-
+```
 
 Keep this terminal running.
 
-Open the Frontend
-Open index.html in your browser.
-You’re now ready to use TextLoom 🎉
+Now open **`index.html`** in your browser.
+🎉 You’re ready to use **TextLoom**!
+
+---
+
+💡 Built with ❤️ to make AI text feel more human.
+Try it out and share your feedback! 🚀
+
+---
