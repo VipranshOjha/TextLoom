@@ -1,64 +1,50 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+# app.py (Streamlit version of TextLoom)
+import streamlit as st
 import google.generativeai as genai
 import os
 from dotenv import load_dotenv
 
+# Load API key
 load_dotenv()
+api_key = os.getenv("GEMINI_API_KEY")
+genai.configure(api_key=api_key)
+model = genai.GenerativeModel("gemini-1.5-flash")
 
-app = Flask(__name__)
+st.set_page_config(page_title="TextLoom", page_icon="✨", layout="centered")
 
-CORS(app)
-# --- Securely Configure the Gemini API Key ---
-try:
-    api_key = os.getenv("GEMINI_API_KEY")
-    if not api_key:
-        raise ValueError("GEMINI_API_KEY not found in .env file. Please ensure it is set.")
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('gemini-1.5-flash')
-except Exception as e:
-    print(f"FATAL ERROR: Could not configure Gemini API. {e}")
-    model = None
+st.title("✨ TextLoom")
+st.subheader("Weaving AI text into natural human flow")
 
-@app.route('/humanize', methods=['POST'])
-def humanize_text():
-    # Check if the model was initialized correctly
-    if not model:
-        return jsonify({"error": "Server is not configured correctly. Check API key."}), 500
+# Input
+text_input = st.text_area("🤖 Enter AI-generated text", height=200)
 
-    # Get the data sent from the frontend
-    data = request.get_json()
-    input_text = data.get('text', '')
-    tone = data.get('tone', '')
+# Tone selection
+tone = st.selectbox(
+    "🎨 Choose a tone",
+    ["Conversational", "Professional", "Friendly", "Witty", "Casual", "Creative", "Academic"]
+)
 
-    if not input_text or not tone:
-        return jsonify({"error": "Missing 'text' or 'tone' in the request."}), 400
-
-    try:
-        # Construct the detailed prompt for the Gemini API
-        prompt = f"""Your role is a "Text Humanizer". Your goal is to take the following AI-generated text and rewrite it to sound like it was written by a person.
-
-Your tone should be: **{tone}**.
-
-Follow these rules:
-1.  Vary Sentence Structure: Mix short, punchy sentences with longer, more descriptive ones.
-2.  Use a Conversational Style: Use contractions and a natural, less formal style.
-3.  Inject Personality: Add analogies or rhetorical questions where appropriate.
-
-Now, please humanize this text:
-'{input_text}'
+if st.button("✨ Humanize Text"):
+    if text_input.strip():
+        with st.spinner("Processing..."):
+            prompt = f"""Your role is a "Text Humanizer".
+Rewrite the following AI text in a more natural, human style.
+Tone: {tone}.
+Text: {text_input}
 """
-        
-        # Call the Gemini API securely from the server
-        response = model.generate_content(prompt)
-        
-        # Send the successful result back to the frontend
-        return jsonify({'humanized_text': response.text})
+            try:
+                response = model.generate_content(prompt)
+                st.success("✅ Humanized Text:")
+                st.write(response.text)
 
-    except Exception as e:
-        # Handle potential errors during the API call
-        print(f"Error during API call: {e}")
-        return jsonify({"error": "An error occurred while processing your request."}), 500
+                # Before/After comparison
+                st.markdown("---")
+                st.markdown("**Before:**")
+                st.info(text_input)
+                st.markdown("**After:**")
+                st.success(response.text)
 
-if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+            except Exception as e:
+                st.error(f"Error: {e}")
+    else:
+        st.warning("⚠️ Please enter some text first.")
