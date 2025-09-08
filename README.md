@@ -53,7 +53,7 @@ AI Model → Google Gemini API
 
 🖼 Screenshot
 
-(Add a screenshot here — ideally showing both input and output panels side by side)
+<img width="1118" height="1394" alt="image" src="https://github.com/user-attachments/assets/b9e0cecd-9199-49ae-b647-e6ed0d71cc98" />
 
 ⚙️ Setup & Usage
 
