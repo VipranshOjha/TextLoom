@@ -12,8 +12,11 @@ When I searched for online “AI humanizers,” I ran into two big issues:
 * **Severe Character Limits** → Free versions barely allowed me to humanize a single paragraph.
 
 That made them impractical for real-world use. I needed something:
+
 ✅ Free to run
+
 ✅ Capable of handling longer text
+
 ✅ Flexible enough to let me choose the tone
 
 ---
