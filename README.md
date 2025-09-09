@@ -101,4 +101,3 @@ Now open **`index.html`** in your browser.
 💡 Built with ❤️ to make AI text feel more human.
 Try it out and share your feedback! 🚀
 
----
